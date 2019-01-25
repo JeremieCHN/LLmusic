@@ -112,16 +112,17 @@ window.onload = function() {
 
     // 搜索框
     $("#search-input input").bind('keypress', (event) => {
-        if (event.keyCode == KEYCODE_ENTER && $("#search-input input").val() != "") {
-            search_song($("#search-input input").val())
-            search_user($("#search-input input").val())
-        } else {
-            $("#search-input input")[0].blur();
-            loadHistory();
-            $("#search-tips").css("display", "block");
-            $("#search-result").css("display", "none");
-            mui.toast("搜索词为空")
-        }
+        if (event.keyCode == KEYCODE_ENTER)
+            if ($("#search-input input").val() != "") {
+                search_song($("#search-input input").val())
+                search_user($("#search-input input").val())
+            } else {
+                $("#search-input input")[0].blur();
+                loadHistory();
+                $("#search-tips").css("display", "block");
+                $("#search-result").css("display", "none");
+                mui.toast("搜索词为空")
+            }
     });
 
     // 搜索状态下
