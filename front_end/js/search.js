@@ -83,6 +83,7 @@ function search_user(username) {
                 result_user = data;
                 $("#user-item-name").text(result_user.username);
                 $("#user-item-info span").text(result_user.musiclists.length);
+                $(".no-user").remove()
                 if (!parent.UserManager.isLogin() ||
                     result_user.username == parent.UserManager.userInfo.username)
                     $("#user-follow").remove();
